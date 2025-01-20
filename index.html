@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>If I were...</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mali:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <!-- Global Audio Element -->
+    <audio id="background-music" loop>
+      <source src="sounds/bgm.mp3" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+  </header>
+
+  <div id="title">
+    <!-- Title image that will act as a play button -->
+    <img src="images/title.png" id="playButton" alt="Play Button" style="cursor: pointer;">
+  </div>
+
+  <div id="start">
+    <p id="startText">Press I to start</p>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const audioElement = document.getElementById('background-music');
+      const playButton = document.getElementById('playButton');
+      const startText = document.getElementById('startText');
+
+      // Set volume to 50%
+      audioElement.volume = 0.5;
+
+      // Function to start the music when the title image (play button) is clicked
+      playButton.addEventListener('click', function () {
+        if (audioElement.paused) {
+          audioElement.play();
+          localStorage.setItem('musicPlaying', 'true');  // Mark the music as playing
+          startText.textContent = 'PRESS I to start';  // Change text to "Press I to start"
+          startText.classList.add('show'); // Add 'show' class to trigger fade-in effect
+        }
+      });
+
+      // If music is already playing (from localStorage), don't start it again
+      if (localStorage.getItem('musicPlaying') === 'true') {
+        audioElement.play();
+        startText.textContent = 'CLICK on the title to start the music';  // Change text if music is already playing
+        startText.classList.add('show'); // Make sure the text is shown if already playing
+      }
+
+      // Save the music state to localStorage when it plays or pauses
+      audioElement.onplay = function () {
+        localStorage.setItem('musicPlaying', 'true');
+      };
+      audioElement.onpause = function () {
+        localStorage.setItem('musicPlaying', 'false');
+      };
+    });
+  </script>
+
+  <script src="script_ani.js"></script>
+</body>
+
+</html>

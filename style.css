@@ -1,0 +1,423 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    overflow-y: hidden; 
+    overflow-x: hidden;
+    height: fit-content;
+    background-color: #170029;
+    color: #ff63e4;
+    font-family: "Mali", serif;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 25px;
+}
+
+#title {
+    text-align: center;
+}
+
+/* Floating animation keyframes */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+        /* Start at the normal position */
+    }
+
+    50% {
+        transform: translateY(-15px);
+        /* Move up */
+    }
+
+    100% {
+        transform: translateY(0);
+        /* Move back down */
+    }
+}
+
+/* Apply floating animation to the image in the title */
+#title img {
+    max-width:45%;
+    height: auto;
+    animation: float 3s ease-in-out infinite;
+    /* Apply animation */
+}
+
+#start p {
+    text-align: center;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+    font-weight: 500;
+}
+
+#start p:hover {
+    filter: blur(5px);
+}
+
+/* CSS for fade-in effect */
+#startText {
+    opacity: 0;
+    visibility: hidden;
+    /* Initially hidden */
+    transition: opacity 10s ease-in-out, visibility 0s linear 2s;
+    /* Delay visibility change until after opacity transition */
+}
+
+#startText.show {
+    opacity: 1;
+    visibility: visible;
+    /* Make text visible when the 'show' class is added */
+}
+
+#qoute-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+
+#qoute-container img {
+    max-width: 25%;
+    height: auto;
+}
+
+#bottle {
+    text-align: right;
+}
+
+#qoute {
+    margin-left: 3vw;
+    ;
+}
+
+strong {
+    font-size: 1.5rem;
+    color: #ff0a8c;
+}
+
+strong:hover {
+    color: #00e38e;
+}
+
+.instruction p {
+    text-align: center;
+    font-size: 0.7rem;
+    transition: color 0.3s ease;
+}
+
+.cat {
+    text-align: center;
+}
+
+.cat img {
+    max-width: 60%;
+    height: auto;
+}
+
+#cat1 {
+    position: relative;
+    display: block;
+}
+
+#cat2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+#main-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
+    align-content: center;
+}
+
+.flower {
+    text-align: center;
+}
+
+.flower img {
+    max-width: 50%;
+    height: auto;
+}
+
+#flower1 {
+    position: relative;
+    display: inline-block;
+}
+
+#flower2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+}
+
+#bush-container {
+    position: relative;
+    bottom: 75vh;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+#bush1 {
+    position: relative;
+    left: 30vh;
+    bottom: 2vh;
+}
+
+#bush2 {
+    position: relative;
+    left: 60vh;
+    bottom: 40vw;
+}
+
+#bush3 {
+    position: relative;
+    left: 90vh;
+    bottom: 82vw;
+}
+
+#bush-container img {
+    max-width: 40%;
+    height: auto;
+}
+
+#board {
+    text-align: center;
+}
+
+#board img {
+    max-width: 60%;
+    height: auto;
+}
+
+#full-bottle {
+    text-align: center;
+    margin-top: 5vh;
+    transform: rotate(15deg);
+    animation: shake 3s ease-in-out infinite;
+    position: relative;
+    top: 5vh;
+}
+
+@keyframes shake {
+    0% {
+        transform: rotate(15deg) translateY(0);
+        /* Start at the normal position */
+    }
+
+    30% {
+        transform: rotate(20deg) translateY(-10px);
+        /* Move up */
+    }
+
+    70% {
+        transform: rotate(-10deg) translateY(3px);
+    }
+
+    100% {
+        transform: rotate(15deg) translateY(0);
+        /* Move back down */
+    }
+}
+
+#full-bottle img {
+    max-width: 40%;
+    height: auto;
+}
+
+#end-container {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    justify-content: center;
+    align-content: center;
+    gap: 20vw;
+    bottom: 10vh;
+    left: 3vw;
+    margin-left: 10vw;
+    margin-right: 10vw;
+}
+
+.par:hover {
+    color: #00e38e;
+}
+
+#par1 {
+    position: relative;
+    bottom: 50vh;
+}
+
+#end p {
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+#end p:hover {
+    filter: blur(5px);
+}
+
+#next1 {
+    height: 20vh;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    gap: 10vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    bottom: 40vh;
+    display: none;
+}
+
+#next1 img {
+    max-width: 45%;
+    height: auto;
+}
+
+button {
+    padding: 20px 20px;
+    font-size: 24px;
+    width: auto;
+    height: 80px;
+    border-radius: 8px;
+    /* Optional: round corners */
+    background-color: #ff0a8c;
+    /* Background color */
+    color: #2700e9;
+    /* Text color */
+    border: none;
+    /* Remove border */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-family: "Mali", serif;
+    font-weight: 600;
+}
+
+button:hover {
+    background-color: #2700e9;
+    color: #ff0a8c;
+}
+
+button:active {
+    background-color: #ffe958;
+    color: #2700e9;
+}
+
+#qoute1 {
+    transform: rotate(5deg);
+    position: relative;
+    transition: transform 0.5 ease-in-out;
+}
+
+#qoute1:hover {
+    transform: rotate(5deg) scale(1.1);
+    transition: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+
+#next2 {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    gap: 10vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    bottom: 280vh;
+    display: none;
+}
+
+#next2 img {
+    max-width: 35%;
+    height: auto;
+}
+
+#qoute2 {
+    transform: rotate(5deg);
+    position: relative;
+}
+
+#qoute2:hover {
+    transform: rotate(5deg) scale(1.1);
+    transition: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+
+#next3 {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    gap: 10vw;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    bottom: 60vh;
+    display: none;
+}
+
+#next3 img {
+    max-width: 40%;
+    height: auto;
+}
+
+#qoute3 {
+    transform: rotate(5deg);
+    position: relative;
+}
+
+#qoute3:hover {
+    transform: rotate(5deg) scale(1.1);
+    transition: 0.5s;
+    transition-timing-function: ease-in-out;
+}
+
+body {
+    opacity: 0;
+    transform: translateY(50px);
+    /* Start with the page moved down */
+    animation: fadeInUp 0.5s forwards;
+    /* Trigger animation on page load */
+}
+
+/* Keyframes for fadeIn and move up */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(50px);
+        /* Start below the normal position */
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        /* End at normal position */
+    }
+}
+
+/* Fade-out effect for the entire body */
+.fade-out {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    /* Smooth opacity transition over 1 second */
+    pointer-events: none;
+    /* Prevent clicks while fading out */
+}
